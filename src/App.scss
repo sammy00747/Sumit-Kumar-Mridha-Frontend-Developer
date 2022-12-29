@@ -1,0 +1,218 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-image:url('./assets/wallpaper-main.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+}
+
+.intro-title {
+  position: absolute;
+  left: 4vw;
+  color: white;
+  background-color: #222931;
+  animation: dropInTitle 2s;
+  animation-fill-mode: forwards;
+}
+
+.intro-description {
+  opacity: 0;
+  position: absolute;
+  left: 4vw;
+  color: white;
+  background-color: #222931;
+  animation: dropInDescription 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+.intro-button {
+  opacity: 0;
+  position: absolute;
+  left: 4vw;
+  color: white;
+  background-color: #222931;
+  padding: 10px;
+  font-size: 15px;
+  border: 2px solid white;
+  border-radius: 4px;
+  animation: dropInButton 2s;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+.dashboard {
+  opacity: 0;
+  width: 92vw;
+  height: 90vh;
+  background-color: white;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  position: absolute;
+  left: 4vw;
+  top: -90vh;
+}
+
+.animate-dashboard {
+  animation: dropInDashboard 2s;
+  animation-fill-mode: forwards;
+}
+
+//title animation
+@keyframes dropInTitle
+{
+  from {
+    top: 0vh;
+    opacity: 0;
+  }
+  to {
+    top: 30vh;
+    opacity: 1;
+  }
+}
+
+//description animation
+@keyframes dropInDescription
+{
+  from {
+    top: 0vh;
+    opacity: 0;
+  }
+  to {
+    top: 40vh;
+    opacity: 1;
+  }
+}
+
+//button animation
+@keyframes dropInButton
+{
+  from {
+    top: 0vh;
+    opacity: 0;
+  }
+  to {
+    top: 47vh;
+    opacity: 1;
+  }
+}
+
+@keyframes dropInDashboard {
+  from {
+    top: -90vh;
+    opacity: 0;
+  }
+  to {
+    top: 5vh;
+    opacity: 1;
+  }
+}
+
+.loading-container {
+  width: 100%;
+  height: calc(100% - 55.2px);
+  position: relative;
+  & > * {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    transform: translate(-50%,-50%);
+  }
+}
+
+.filters-container {
+  width: calc(100% - 70px);
+  background-color: #dfdfdf;
+  padding: 10px 35px;
+  display: flex;
+  align-items: center;
+  & > .input-wrapper {
+    padding-right: 10px;
+    flex-grow: 1;
+    display: flex;
+    input, select {
+      flex-grow: 1;
+      padding: 5px 3px;
+      border-radius: 4px;
+      border-width: 1px;
+    }
+    label {
+      font-weight: bolder;
+      margin-right: 4px;
+    }
+  }
+  & > .search-button {
+    padding: 8px;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: #222931;
+    color: white;
+  }
+}
+
+.capsules-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 25px;
+  overflow-y: auto;
+  & > .capsule-wrapper {
+    width: 260px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    & > .capsule {
+      width: 240px;
+      height: fit-content;
+      outline: 1px solid gray;
+      border-radius: 8px;
+      overflow: hidden;
+      & > .capsule-header {
+        background-color: #ccc;
+        height: 70px;
+        position: relative;
+        & > div {
+          font-size: 25px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+        }
+      }
+      & > .capsule-info {
+        padding: 12px;
+      }
+    }
+  }
+}
+
+.pagination-container {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  .page-button {
+    outline: 1px solid gray;
+    background-color: #fafafa;
+    padding: 1px 5px;
+    text-align: center;
+    cursor: pointer;
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+  }
+  .pageNo-display {
+    width: 45px;
+    text-align: center;
+    outline: 1px solid gray;
+    background-color: white;
+  }
+}
